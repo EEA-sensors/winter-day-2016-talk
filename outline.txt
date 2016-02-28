@@ -1,0 +1,32 @@
+
+20min
+
+** Indoor positioning using smartphones
+
+Indoor positioning and smartphones
+
+- Why indoor positioning is hard?
+
+- Sensors in modern smartphones
+
+WiFi, beacon, and magnetic fingerprinting
+
+- WiFi and Beacon-based positioning
+
+- Magnetic positioning
+
+Sensor fusion
+
+- Inertial navigation and PDRs
+
+- Gaussian processes and particle filtering
+
+Example results
+
+- Example results
+
+Discussion and summary
+
+- Future insights, applications, visual information
+
+- Summary
