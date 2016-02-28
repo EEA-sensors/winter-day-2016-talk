@@ -77,16 +77,16 @@
 %\subtitle
 %{Presentation Subtitle} % (optional)
 
-\author[Simo S\"arkk\"a]{Assoc. Prof. {\bf Simo S\"arkk\"a}}
+\author[Simo S\"arkk\"a]{Assoc.~Prof.~{\bf Simo S\"arkk\"a}}
 % - Use the \inst{?} command only if the authors have different
 %   affiliation.
 
-\institute[EEA Departmen]{EEA Department @ELEC} % (optional, but mostly needed)
+\institute[EEA Department]{\balert{EEA Department / ELEC@Aalto}} % (optional, but mostly needed)
 
 % - Use the \inst command only if there are several affiliations.
 % - Keep it simple, no one is interested in your street address.
 
-\date[March 2, 2016]{Research Winter Day, March 2, 2016}
+\date[March 2, 2016]{\alert{Research Winter Day, March 2, 2016}}
 
 %\subject{Talks}
 % This is only inserted into the PDF information catalog. Can be left
@@ -242,7 +242,7 @@
 \section{Motivation}
 
 \begin{frame}
-  \frametitle{Why indoor positioning is important?}
+  \frametitle{Why indoor positioning is important}
 
   % guidance
   % IoT
@@ -251,8 +251,32 @@
 
   \begin{columns}
   \begin{column}{0.7\textwidth}
-  \begin{itemize}[<+->]       
-  \item XXX
+  \begin{itemize}[<+->]
+
+%  \item Indoor positioning has \alert{applications} in various areas.
+
+  \item {\em Shopping mall applications:}
+    \begin{itemize}[<+->]  
+  	\item \alert{Wayfinding} in \balert{shopping malls}.
+	\item Wayfinding and navigation in \alert{garages}.
+  	\item Targeted \alert{advertisement} and \balert{analytics}.
+    \end{itemize}
+  \item {\em Hospitals}:
+    \begin{itemize}[<+->]  
+      \item Tracking of \alert{patients}.
+      \item Alerting of \alert{medical personnel}. 
+      \item Positioning of \alert{wireless medical equipment}. 
+    \end{itemize}
+  \item {\em Internet-of-things (IoT):}
+    \begin{itemize}[<+->]    
+      \item Positioning of \alert{IoT devices}.
+      \item \alert{Ad-doc network} formation.
+    \end{itemize}
+  \item {\em Safety and security:}
+    \begin{itemize}[<+->]    
+      \item Navigation in \alert{burning buildings}.
+      \item \alert{Security personnel} tracking.
+    \end{itemize}
   \end{itemize}
   \end{column}
   \begin{column}{0.3\textwidth}
@@ -264,7 +288,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Why indoor positioning is hard?}
+  \frametitle{Why indoor positioning is hard}
 
   % - 1m accuracy requirement
   % - GPS does not work indoors
@@ -272,7 +296,11 @@
   \begin{columns}
   \begin{column}{0.7\textwidth}
   \begin{itemize}[<+->]       
-  \item XXX
+  \item \alert{GPS does not work indoors} -- nor any other satellite navigation system.
+  \item The \alert{accuracy requirement} is often \alert{1 meter}.
+  \item \alert{Mobile phone network} positioning is not accurate enough.
+  \item Accurate \alert{height} information is important (which floor).
+  \item \alert{Indoor maps} can be challenging to obtain.
   \end{itemize}
   \end{column}
   \begin{column}{0.3\textwidth}
@@ -289,7 +317,12 @@
   \begin{columns}
   \begin{column}{0.6\textwidth}
   \begin{itemize}[<+->]       
-  \item XXX
+  \item \alert{GPS/GNSS receiver} for (outdoors) satellite positioning.
+  \item \alert{Accelerometer and gyroscope} measure the local moment and rotation.
+  \item \alert{WiFi, Bluetooth, and 3G/4G/5G} measure radio signals.
+  \item \alert{Magnetometer} (compass) measures the local magnetic field direction.
+  \item \alert{Barometer} measures the local pressure (gives information on height).
+  \item \alert{Camera} measures the optimal properties of the environment (i.e. takes pictures).
   \end{itemize}
   \end{column}
   \begin{column}{0.4\textwidth}
@@ -306,11 +339,16 @@
   \begin{columns}
   \begin{column}{0.6\textwidth}
   \begin{itemize}[<+->]       
-  \item XXX
+  \item \alert{WiFi and (Bluetooth) beacons} are often used for indoor positioning.
+  \item Based on measuring strengths of \alert{radio transmitters in known locations}.
+  \item Requires building a \alert{map of the radio environment}.
+  \item \alert{Accuracy} is limited by \alert{local attenuation and device differences}.
+  \item \alert{Radio maps} need to be \alert{updated} continuously -- can be labour-intensive.
   \end{itemize}
   \end{column}
   \begin{column}{0.4\textwidth}
   \includegraphics[width=\columnwidth]{floorplan} \\
+  \vspace{2em}
   \includegraphics[width=\columnwidth]{wifimap}
   \end{column}
   \end{columns}
@@ -322,11 +360,15 @@
   \begin{columns}
   \begin{column}{0.6\textwidth}
   \begin{itemize}[<+->]       
-  \item XXX
+  \item \alert{Magnetic positioning} utilizes \alert{local magnetic field variations} in buildings.
+  \item Requires creating a \alert{map of the magnetic field variations}.
+  \item Due to field ambiguity, needs to combined with \alert{inertial navigation} and \alert{orientation tracking}.
+  \item \alert{Locally accurate}, benefits from \alert{combining with WiFi/Beacon positioning}.
   \end{itemize}
   \end{column}
   \begin{column}{0.4\textwidth}
   \includegraphics[width=\columnwidth]{terrain-matching} \\
+  \vspace{2em}
   \includegraphics[width=\columnwidth]{magnetic}
   \end{column}
   \end{columns}
@@ -340,7 +382,12 @@
   \begin{columns}
   \begin{column}{0.6\textwidth}
   \begin{itemize}[<+->]       
-  \item XXX
+  \item \alert{Acceleration and angular velocity} can be \alert{integrated} to give position and orientation.
+  \item Unknown \alert{initial conditions and sensors drifts} cause problems.
+  \item The \alert{known gravitation direction} helps in \alert{orientation tracking}.
+  \item Accelerometer can also be used to \alert{detect steps} -- gives a measurement of \alert{speed/distance}.
+  \item \alert{Barometer} can be used to for \alert{local height tracking}. 
+  \item Best when \alert{combined} with \alert{radio and magnetic} positioning methods.
   \end{itemize}
   \end{column}
   \begin{column}{0.4\textwidth}
@@ -350,21 +397,21 @@
   \end{columns}
 \end{frame}
 
-%\begin{frame}
-%  \frametitle{Sensor fusion: Gaussian processes and particle filtering}
-
-%  \begin{itemize}[<+->]       
-%  \item XXX
-%  \end{itemize}
-%\end{frame}
-
 \begin{frame}
   \frametitle{Simultaneous localization and mapping (SLAM)}
 
   \begin{columns}
   \begin{column}{0.5\textwidth}
   \begin{itemize}[<+->]       
-  \item XXX
+  \item In \alert{simultaneous localization and mapping (SLAM)} the radio/ magnetic
+  map is created while positioning.
+  \item Considerably \alert{harder} than \alert{separate mapping and positioning}.
+  \item Typically based on detecting a \alert{return to known location}:
+  \begin{itemize}[<+->]       
+  \item We can do a \alert{loop closure} to confirm the traveled path.
+  \item \alert{Inertial navigation} can be used to map a small unknown area at a time.
+  \item Known wall locations provide \alert{constraints}.
+  \end{itemize}
   \end{itemize}
   \end{column}
   \begin{column}{0.5\textwidth}
@@ -374,21 +421,65 @@
 \end{frame}
 
 
+
+\begin{frame}
+  \frametitle{Gaussian processes, Kalman and particle filtering}
+
+  \begin{columns}
+  \begin{column}{0.65\textwidth}
+  \begin{itemize}[<+->]       
+  \item \alert{WiFi, beacon, and magnetic maps} typically estimated using \alert{Gaussian processes} (GPs).
+  \item GPs are \alert{machine learning tools} for \alert{learning} the field from noisy observations.
+  \item \alert{Inertial sensor fusion} is often done using \alert{(extended) Kalman filters}.
+  \item \alert{Sensor fusion} with \alert{radio and magnetic} often done with \alert{particle filters}.
+  \item When combined, can be used for \alert{simultaneous localization and mapping (SLAM)}.
+  \item Generally, \alert{multi-sensor processing} is treated as a (Bayesian) \alert{statistical inverse problem}.
+  \end{itemize}
+  \end{column}
+  \begin{column}{0.35\textwidth}
+  \includegraphics[width=\columnwidth]{TikZ-covariance-figure} \\
+  \includegraphics[width=\columnwidth]{pf_est}
+  \end{column}
+  \end{columns}
+\end{frame}
+
+
 \section{Future insights and summary}
 
 \begin{frame}
-  \frametitle{Future insights, applications, visual information}
+  \frametitle{Computer vision, future insights}
 
-  \begin{itemize}[<+->]       
-  \item XXX
+  \begin{columns}
+  \begin{column}{0.51\textwidth}
+  \begin{itemize}[<+->]
+  \item \alert{Smartphone camera} can be used for determining the \alert{3D structure of indoor environment}.
+  \item When \alert{combined with SLAM}, eliminates the need for floorplans -- and eases SLAM.
+  \item Even better is to use a \alert{depth-camera, laser, or miniature radar}.
+  \item Other \alert{improvement possibilities}:
+  \begin{itemize}[<+->]
+  \item Cooperative positioning.
+  \item Other signals of opportunity.
+  \item Modeling of human behaviour.
   \end{itemize}
+  \end{itemize}
+  \end{column}
+  \begin{column}{0.49\textwidth}
+  \includegraphics[width=\columnwidth]{pointcloud} \\
+  \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}
   \frametitle{Summary}
 
   \begin{itemize}[<+->]       
-  \item XXX
+  \item \alert{Indoor positioning} has applications, e.g., in shopping malls, hospitals, internet-of-things, and security.
+  \item Hard, because \alert{GPS does not work} indoors and the \alert{accuracy requirements} are tight.
+  \item Smartphones have a number of sensors: \alert{radio, inertial, magnetic, and barometer sensors} (among others).
+  \item Indoor positioning typically use \alert{WiFi, beacons, or magnetic field variations}.
+  \item \alert{Inertial navigation, step counting, and barometer} can be combined with the methods.
+  \item \alert{Simultaneous localization and mapping (SLAM)} methods build maps while positioning.
+  \item Computational methods include \alert{Gaussian processes} together with \alert{Kalman and particle filters}.
   \end{itemize}
 \end{frame}
 
